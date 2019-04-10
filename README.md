@@ -12,7 +12,7 @@
 
 ## At a Glance
 
-`Fragmentor` is a fragment-based navigation manager for Android.
+`Fragmentor` is a fragment-based navigation manager for Android. It solves common issues related to navigation between fragments.
 
 ## How to Get Started
 
