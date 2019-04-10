@@ -4,7 +4,7 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
-class NavigationManager(
+class NavigationManager internal constructor(
     private val activity: FragmentActivity,
     @IdRes private val containerId: Int
 ) {
