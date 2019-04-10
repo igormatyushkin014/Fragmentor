@@ -43,7 +43,52 @@ dependencies {
 
 ## Usage
 
-Documentation will be published soon.
+### Preparations
+
+Put `FrameLayout` with `fragmentor` ID into your activity's layout just like in example below:
+
+```xml
+...
+<FrameLayout
+    ...
+    id="@+id/fragmentor"
+    />
+...
+```
+
+You're all set!
+
+### Navigation
+
+Now you can display a fragment (it will be pushed to the top of stack):
+
+```kotlin
+fragmentor().push(MyFragment())
+```
+
+Also, it's possible to push an array of fragments:
+
+```kotlin
+fragmentor().push(
+    arrayOf(
+        OneFragment(),
+        TwoFragment(),
+        ThreeFragment()
+    )
+)
+```
+
+Navigate back:
+
+```kotlin
+fragmentor().pop()
+```
+
+Navigate back to the first fragment:
+
+```kotlin
+fragmentor().popToBottom()
+```
 
 ## License
 
