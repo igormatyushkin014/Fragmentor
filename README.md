@@ -58,7 +58,7 @@ Put `FrameLayout` with `fragmentor` ID into your activity's layout just like in 
 
 You're all set!
 
-### Navigation
+### Navigation from activity
 
 Now you can display a fragment from your activity:
 
@@ -73,9 +73,9 @@ Also, it's possible to push an array of fragments:
 ```kotlin
 fragmentor().push(
     arrayOf(
-        OneFragment(),
-        TwoFragment(),
-        ThreeFragment()
+        MyFragment(),
+        AnotherFragment(),
+        OneMoreFragment()
     )
 )
 ```
@@ -90,6 +90,14 @@ Navigate back to the first fragment:
 
 ```kotlin
 fragmentor().popToBottom()
+```
+
+### Navigation from fragment
+
+You can use `fragmentor()` directly from your fragment class. The method will return navigation manager for fragment's activity:
+
+```kotlin
+fragmentor()?.push(AnotherFragment())
 ```
 
 ## License
