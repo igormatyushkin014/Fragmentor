@@ -1,5 +1,6 @@
 package com.visuality.fragmentor.bridge
 
+import android.view.View
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import com.visuality.fragmentor.R
@@ -20,3 +21,7 @@ fun Fragment.fragmentor() = this.activity?.let { activity ->
         R.id.fragmentor
     )
 }
+
+fun Fragment.hasDefaultFragmentor() = this.activity?.findViewById<View>(
+    R.id.fragmentor
+) != null
