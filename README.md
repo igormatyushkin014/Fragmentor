@@ -60,11 +60,13 @@ You're all set!
 
 ### Navigation
 
-Now you can display a fragment (it will be pushed to the top of stack):
+Now you can display a fragment from your activity:
 
 ```kotlin
 fragmentor().push(MyFragment())
 ```
+
+In the example above, the fragment will be pushed to the top of stack.
 
 Also, it's possible to push an array of fragments:
 
