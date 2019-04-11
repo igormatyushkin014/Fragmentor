@@ -6,7 +6,20 @@ import androidx.fragment.app.Fragment
 import com.visuality.fragmentor.R
 import com.visuality.fragmentor.engine.NavigationManager
 
-fun Fragment.fragmentor(
+val Fragment.fragmentor
+    get() = this.activity?.let { activity ->
+        NavigationManager(
+            activity,
+            R.id.fragmentorContainer
+        )
+    }
+
+val Fragment.hasDefaultFragmentor
+    get() = this.activity?.findViewById<View>(
+        R.id.fragmentorContainer
+    ) != null
+
+fun Fragment.fragmentorForContainer(
     @IdRes containerId: Int
 ) = this.activity?.let { activity ->
     NavigationManager(
@@ -14,14 +27,3 @@ fun Fragment.fragmentor(
         containerId
     )
 }
-
-fun Fragment.fragmentor() = this.activity?.let { activity ->
-    NavigationManager(
-        activity,
-        R.id.fragmentor
-    )
-}
-
-fun Fragment.hasDefaultFragmentor() = this.activity?.findViewById<View>(
-    R.id.fragmentor
-) != null
