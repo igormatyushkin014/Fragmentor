@@ -31,7 +31,7 @@ Then add `TellMe` to dependencies list:
 
 ```javascript
 dependencies {
-    implementation 'com.github.igormatyushkin014:Fragmentor:1.0.1'
+    implementation 'com.github.igormatyushkin014:Fragmentor:1.1'
 }
 ```
 
@@ -45,13 +45,13 @@ dependencies {
 
 ### Preparations
 
-Put `FrameLayout` with `fragmentor` ID into your activity's layout just like in example below:
+Put `FrameLayout` with `fragmentorContainer` ID into your activity's layout just like in example below:
 
 ```xml
 ...
 <FrameLayout
     ...
-    id="@+id/fragmentor"
+    id="@+id/fragmentorContainer"
     />
 ...
 ```
@@ -63,7 +63,7 @@ You're all set!
 Now you can display a fragment from your activity:
 
 ```kotlin
-fragmentor().push(MyFragment())
+fragmentor.push(MyFragment())
 ```
 
 In the example above, the fragment will be pushed to the top of stack.
@@ -71,7 +71,7 @@ In the example above, the fragment will be pushed to the top of stack.
 Also, it's possible to push an array of fragments:
 
 ```kotlin
-fragmentor().push(
+fragmentor.push(
     arrayOf(
         MyFragment(),
         AnotherFragment(),
@@ -83,21 +83,21 @@ fragmentor().push(
 Navigate back:
 
 ```kotlin
-fragmentor().pop()
+fragmentor.pop()
 ```
 
 Navigate back to the first fragment:
 
 ```kotlin
-fragmentor().popToBottom()
+fragmentor.popToBottom()
 ```
 
 ### Navigation from fragment
 
-You can use `fragmentor()` directly from your fragment class. The method will return navigation manager for fragment's activity:
+You can use `fragmentor` directly from your fragment class. The method will return navigation manager for fragment's activity:
 
 ```kotlin
-fragmentor()?.push(AnotherFragment())
+fragmentor?.push(AnotherFragment())
 ```
 
 ## License
