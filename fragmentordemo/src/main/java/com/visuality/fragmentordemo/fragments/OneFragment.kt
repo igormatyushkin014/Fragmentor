@@ -37,7 +37,7 @@ class OneFragment : Fragment() {
 
     private fun prepareNextButton() {
         this.nextButton.setOnClickListener {
-            fragmentor()?.push(
+            fragmentor?.push(
                 TwoFragment()
             )
         }

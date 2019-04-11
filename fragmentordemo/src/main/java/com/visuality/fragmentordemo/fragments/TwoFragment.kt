@@ -42,13 +42,13 @@ class TwoFragment : Fragment() {
 
     private fun preparePreviousButton() {
         this.previousButton.setOnClickListener {
-            fragmentor()?.pop()
+            fragmentor?.pop()
         }
     }
 
     private fun prepareNextButton() {
         this.nextButton.setOnClickListener {
-            fragmentor()?.push(
+            fragmentor?.push(
                 ThreeFragment()
             )
         }

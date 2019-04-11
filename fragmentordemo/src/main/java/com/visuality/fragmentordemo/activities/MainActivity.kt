@@ -12,10 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         this.setContentView(R.layout.activity_main)
 
-        fragmentor().push(OneFragment())
+        fragmentor.push(OneFragment())
     }
 
     override fun onBackPressed() {
-        fragmentor().onBackPressed()
+        fragmentor.onBackPressed()
     }
 }

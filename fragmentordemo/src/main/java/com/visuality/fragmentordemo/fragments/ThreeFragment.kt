@@ -37,7 +37,7 @@ class ThreeFragment : Fragment() {
 
     private fun preparePreviousButton() {
         this.previousButton.setOnClickListener {
-            fragmentor()?.pop()
+            fragmentor?.pop()
         }
     }
 }
