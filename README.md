@@ -45,7 +45,7 @@ dependencies {
 
 ### Preparations
 
-Put `FrameLayout` with `fragmentorContainer` ID into your activity's layout just like in example below:
+First of all, you need a container for your fragments. Simply put `FrameLayout` component with `fragmentorContainer` ID into your activity's layout just like in the example below:
 
 ```xml
 ...
@@ -60,13 +60,13 @@ You're all set!
 
 ### Navigation from activity
 
-Now you can display a fragment from your activity:
+Navigation starts with `NavigationManager` instance. It handles everything related to navigation between fragments. The navigation is based on stack of fragments. When you push new fragment to the stack, it will be shown on the top. When you pop the latest fragment, the top underlying fragment will be shown. So, `push` and `pop` are the main operations that simplify navigation a lot.
+
+You can access the `NavigationManager` instance appropriate for your current activity by using `fragmentor`. For example, this is how you push a fragment from your activity:
 
 ```kotlin
 fragmentor.push(MyFragment())
 ```
-
-In the example above, the fragment will be pushed to the top of stack.
 
 Also, it's possible to push an array of fragments:
 
@@ -94,7 +94,7 @@ fragmentor.popToBottom()
 
 ### Navigation from fragment
 
-You can use `fragmentor` directly from your fragment class. The method will return navigation manager for fragment's activity:
+You can use `fragmentor` directly from your fragment class. The method will return nullable `NavigationManager` instance:
 
 ```kotlin
 fragmentor?.push(AnotherFragment())
