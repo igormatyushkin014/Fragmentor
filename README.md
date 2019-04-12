@@ -27,7 +27,7 @@ allprojects {
 }
 ```
 
-Then add `TellMe` to dependencies list:
+Then add `Fragmentor` to dependencies list:
 
 ```javascript
 dependencies {
@@ -60,9 +60,9 @@ You're all set!
 
 ### Navigation from activity
 
-Navigation starts with `NavigationManager` instance. It handles everything related to navigation between fragments. The navigation is based on stack of fragments. When you push new fragment to the stack, it will be shown on the top. When you pop the latest fragment, the top underlying fragment will be shown. So, `push` and `pop` are the main operations that simplify navigation a lot.
+Navigation starts with `NavigationManager` instance. It handles everything related to navigation between fragments. All fragments exist inside of stack. When you push new fragment to the stack, it will be shown on the top. When you pop the latest fragment, the top underlying fragment will be shown. So, `push` and `pop` will be the main operations used for navigation.
 
-You can access the `NavigationManager` instance appropriate for your current activity by using `fragmentor`. For example, this is how you push a fragment from your activity:
+You can access the `NavigationManager` instance related to your current activity by using `fragmentor`. For example, this is how you push a fragment from your activity:
 
 ```kotlin
 fragmentor.push(MyFragment())
