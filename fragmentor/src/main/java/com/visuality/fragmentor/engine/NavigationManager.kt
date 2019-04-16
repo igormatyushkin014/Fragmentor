@@ -6,7 +6,6 @@ import android.os.Looper
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 
 class NavigationManager internal constructor(
     private val activity: FragmentActivity,
