@@ -100,7 +100,7 @@ You can use `fragmentor` directly from your fragment class. The method will retu
 fragmentor?.push(AnotherFragment())
 ```
 
-## Solving Android issues
+### Solving Android issues
 
 By default, fragment is not clickable and focusable. Also, it has transparent background. `Fragmentor` solves these issues automatically so you don't need to write anything! All fragments that are pushed using `NavigationManager` are clickable, focusable and include white background. That's how the library saves developer's time.
 
