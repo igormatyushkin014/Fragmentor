@@ -50,18 +50,16 @@ class NavigationManager internal constructor(
     fun push(
         fragments: Array<out Fragment>
     ) {
-        this.activity.supportFragmentManager
-            .beginTransaction()
-            .also {  transaction ->
-                for (fragment in fragments) {
-                    transaction.add(
-                        this.containerId,
-                        fragment
-                    )
-                    transaction.addToBackStack(null)
-                }
-            }
-            .commit()
+        for (fragment in fragments) {
+            this.activity.supportFragmentManager
+                .beginTransaction()
+                .add(
+                    this.containerId,
+                    fragment
+                )
+                .addToBackStack(null)
+                .commit()
+        }
 
         Handler(Looper.getMainLooper()).post {
             for (fragment in fragments) {
