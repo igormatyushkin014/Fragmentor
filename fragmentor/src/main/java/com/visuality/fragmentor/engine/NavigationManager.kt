@@ -1,8 +1,12 @@
 package com.visuality.fragmentor.engine
 
+import android.graphics.Color
+import android.os.Handler
+import android.os.Looper
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 
 class NavigationManager internal constructor(
     private val activity: FragmentActivity,
@@ -12,6 +16,19 @@ class NavigationManager internal constructor(
     val stack = NavigationStack(
         this.activity.supportFragmentManager
     )
+
+    private fun prepareFragmentForUse(fragment: Fragment) {
+        fragment.view?.let { view ->
+            if (view.background == null) {
+                view.setBackgroundColor(
+                    Color.WHITE
+                )
+            }
+
+            view.isClickable = true
+            view.isFocusable = true
+        }
+    }
 
     fun push(
         fragment: Fragment
@@ -24,6 +41,10 @@ class NavigationManager internal constructor(
             )
             .addToBackStack(null)
             .commit()
+
+        Handler(Looper.getMainLooper()).post {
+            this.prepareFragmentForUse(fragment)
+        }
     }
 
     fun push(
@@ -37,9 +58,16 @@ class NavigationManager internal constructor(
                         this.containerId,
                         fragment
                     )
+                    transaction.addToBackStack(null)
                 }
             }
             .commit()
+
+        Handler(Looper.getMainLooper()).post {
+            for (fragment in fragments) {
+                this.prepareFragmentForUse(fragment)
+            }
+        }
     }
 
     fun pop() {
